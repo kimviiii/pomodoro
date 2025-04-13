@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Button from "./components/Button/Button";
 
 function App() {
   const [minutes, setMinutes] = useState(25);
@@ -45,12 +46,13 @@ function App() {
     <div className="App">
       <h1>Pomodoro Timer</h1>
       <div>
-        {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
+        {minutes.toString().padStart(2, "0")}:
+        {seconds.toString().padStart(2, "0")}
       </div>
       <div>
-        <button onClick={startTimer}>Start</button>
-        <button onClick={pauseTimer}>Pause</button>
-        <button onClick={resetTimer}>Reset</button>
+        <Button label="Start" onClick={startTimer} />
+        <Button label="Pause" onClick={pauseTimer} />
+        <Button label="Reset" onClick={resetTimer} />
       </div>
     </div>
   );
