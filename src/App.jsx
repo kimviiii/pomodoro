@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Button from "./components/Button/Button";
+import Quote from "./components/Quote/Quote";
 
 function App() {
   const [minutes, setMinutes] = useState(25);
@@ -53,6 +54,9 @@ function App() {
         <Button label="Start" onClick={startTimer} />
         <Button label="Pause" onClick={pauseTimer} />
         <Button label="Reset" onClick={resetTimer} />
+      </div>
+      <div>
+        <Quote />
       </div>
     </div>
   );
