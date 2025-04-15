@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Button from "./components/Button/Button";
 import Quote from "./components/Quote/Quote";
+import Wallpaper from "./components/Wallpaper/Wallpaper";
 
 function App() {
   const [minutes, setMinutes] = useState(25);
@@ -44,6 +45,7 @@ function App() {
   };
 
   return (
+    <Wallpaper>
     <div className="App">
       <h1>Pomodoro Timer</h1>
       <div>
@@ -59,6 +61,7 @@ function App() {
         <Quote />
       </div>
     </div>
+    </Wallpaper>
   );
 }
 
