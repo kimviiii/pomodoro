@@ -48,7 +48,7 @@ function App() {
     <Wallpaper>
     <div className="App">
       <h1>Pomodoro Timer</h1>
-      <div>
+      <div className="timer">
         {minutes.toString().padStart(2, "0")}:
         {seconds.toString().padStart(2, "0")}
       </div>
