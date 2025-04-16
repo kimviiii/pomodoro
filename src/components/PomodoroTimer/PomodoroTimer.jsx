@@ -45,7 +45,7 @@ function PomodoroTimer() {
   return (
     <div className={styles.pomodoroTimer}>
       <h1>Pomodoro Timer</h1>
-      <div className="timer">
+      <div className={styles.timer}>
         {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
       </div>
       <div>
