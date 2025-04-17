@@ -36,7 +36,7 @@ function Quote() {
     }, []);
 
     return (
-        <div className={styles.quoteContainer}>
+        <div className={styles.quote}>
             <p>{quote}</p>
             {error && <p style={{ color: 'red' }}>Error: {error}</p>}
         </div>

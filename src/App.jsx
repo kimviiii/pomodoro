@@ -1,66 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Button from "./components/Button/Button";
+import PomodoroTimer from "./components/PomodoroTimer/PomodoroTimer";
 import Quote from "./components/Quote/Quote";
 import Wallpaper from "./components/Wallpaper/Wallpaper";
+import AdjustButton from "./components/AdjustButton/AdjustButton";
 
 function App() {
-  const [minutes, setMinutes] = useState(25);
-  const [seconds, setSeconds] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    let interval = null;
-    if (isActive && (minutes > 0 || seconds > 0)) {
-      interval = setInterval(() => {
-        if (seconds === 0) {
-          if (minutes === 0) {
-            clearInterval(interval);
-          } else {
-            setMinutes(minutes - 1);
-            setSeconds(59);
-          }
-        } else {
-          setSeconds(seconds - 1);
-        }
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
-    return () => clearInterval(interval);
-  }, [isActive, minutes, seconds]);
-
-  const startTimer = () => {
-    setIsActive(true);
-  };
-
-  const pauseTimer = () => {
-    setIsActive(false);
-  };
-
-  const resetTimer = () => {
-    setIsActive(false);
-    setMinutes(25);
-    setSeconds(0);
-  };
-
   return (
     <Wallpaper>
-    <div className="App">
-      <h1>Pomodoro Timer</h1>
-      <div className="timer">
-        {minutes.toString().padStart(2, "0")}:
-        {seconds.toString().padStart(2, "0")}
+      <div className="App">
+        <PomodoroTimer />
+        <AdjustButton label="Increase" type="increase" onClick={() => {}} />
+        <AdjustButton label="Decrease" type="decrease" onClick={() => {}} />
+        <div>
+          <Quote />
+        </div>
       </div>
-      <div>
-        <Button label="Start" onClick={startTimer} />
-        <Button label="Pause" onClick={pauseTimer} />
-        <Button label="Reset" onClick={resetTimer} />
-      </div>
-      <div>
-        <Quote />
-      </div>
-    </div>
     </Wallpaper>
   );
 }
