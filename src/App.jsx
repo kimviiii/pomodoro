@@ -10,8 +10,6 @@ function App() {
     <Wallpaper>
       <div className="App">
         <PomodoroTimer />
-        <AdjustButton label="Increase" type="increase" onClick={() => {}} />
-        <AdjustButton label="Decrease" type="decrease" onClick={() => {}} />
         <div>
           <Quote />
         </div>

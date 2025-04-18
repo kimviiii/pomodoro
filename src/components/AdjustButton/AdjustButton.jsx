@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./AdjustButton.module.css";
 import classNames from 'classnames';
 
-const AdjustButton = ({label, onClick, type}) => {
+const AdjustButton = ({label, type , onClick }) => {
+
     const buttonClass = classNames(
         styles.button,
         {
