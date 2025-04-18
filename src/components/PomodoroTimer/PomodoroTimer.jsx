@@ -62,8 +62,8 @@ function PomodoroTimer() {
         {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
       </div>
       <div className={styles.adjustButtons}>
-      <AdjustButton label="Increase" type="increase" onClick={increaseTime} />
-      <AdjustButton label="Decrease" type="decrease" onClick={decreaseTime} />
+      <AdjustButton label="Increase" type="increase" onClick={increaseTime} disabled={isActive || seconds !== 0} />
+      <AdjustButton label="Decrease" type="decrease" onClick={decreaseTime} disabled={isActive || seconds !== 0} />
       </div>
       <div>
         <Button label="Start" onClick={startTimer} />
