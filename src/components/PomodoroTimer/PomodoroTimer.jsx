@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import styles from './PomodoroTimer.module.css';
+import AdjustButton from '../AdjustButton/AdjustButton';
 
 function PomodoroTimer() {
   const [minutes, setMinutes] = useState(25);
@@ -42,11 +43,29 @@ function PomodoroTimer() {
     setSeconds(0);
   };
 
+  const increaseTime = () => {
+    console.log("Increase time button clicked!");
+    // setMinutes((prevMinutes) => Math.min(prevMinutes + 1, 60)); // Limit to 60 minutes
+    alert("Increase time button clicked!");
+  };
+
+  const decreaseTime = () => {
+    console.log("Decrease time button clicked!");
+    // setMinutes((prevMinutes) => Math.max(prevMinutes - 1, 1)); // Limit to 1 minute
+    alert("Decrease time button clicked!");
+  };
+
   return (
     <div className={styles.pomodoroTimer}>
       <h1>Pomodoro Timer</h1>
       <div className={styles.timer}>
         {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
+      </div>
+      <div className={styles.adjustButtons}>
+      {/* <AdjustButton label="Increase" type="increase" onClick={() => setMinutes(minutes + 1)} />
+      <AdjustButton label="Decrease" type="decrease" onClick={() => setMinutes(minutes - 1)} /> */}
+      <AdjustButton label="Increase" type="increase" onClick={increaseTime} />
+      <AdjustButton label="Decrease" type="decrease" onClick={decreaseTime} />
       </div>
       <div>
         <Button label="Start" onClick={startTimer} />
