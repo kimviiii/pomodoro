@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./AdjustButton.module.css";
 import classNames from 'classnames';
 
-const AdjustButton = ({label, type , onClick }) => {
+const AdjustButton = ({label, type, onClick, disabled }) => {
 
     const buttonClass = classNames(
         styles.button,
@@ -11,10 +11,13 @@ const AdjustButton = ({label, type , onClick }) => {
             [styles.decrease]: type === 'decrease',
         }
     );
+    
+    const icon = type === 'increase' ? '➕' : '➖';
+    // const icon = type === 'increase' ? '↑' : '↓';
 
     return (
-        <button className={buttonClass} onClick={onClick}>
-            {label}
+        <button className={buttonClass} onClick={onClick} disabled={disabled}>
+            {icon}
         </button>
     );
 };

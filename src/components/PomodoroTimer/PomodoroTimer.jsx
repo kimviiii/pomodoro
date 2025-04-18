@@ -44,15 +44,15 @@ function PomodoroTimer() {
   };
 
   const increaseTime = () => {
-    console.log("Increase time button clicked!");
-    // setMinutes((prevMinutes) => Math.min(prevMinutes + 1, 60)); // Limit to 60 minutes
-    alert("Increase time button clicked!");
+    if (!isActive && seconds === 0) {
+      setMinutes((prevMinutes) => Math.min(prevMinutes + 5, 60)); // Limit to 60 minutes
+    }
   };
 
   const decreaseTime = () => {
-    console.log("Decrease time button clicked!");
-    // setMinutes((prevMinutes) => Math.max(prevMinutes - 1, 1)); // Limit to 1 minute
-    alert("Decrease time button clicked!");
+    if (!isActive && seconds === 0) {
+      setMinutes((prevMinutes) => Math.max(prevMinutes - 5, 5)); // Limit to 1 minute
+    }
   };
 
   return (
@@ -62,10 +62,8 @@ function PomodoroTimer() {
         {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
       </div>
       <div className={styles.adjustButtons}>
-      {/* <AdjustButton label="Increase" type="increase" onClick={() => setMinutes(minutes + 1)} />
-      <AdjustButton label="Decrease" type="decrease" onClick={() => setMinutes(minutes - 1)} /> */}
-      <AdjustButton label="Increase" type="increase" onClick={increaseTime} />
-      <AdjustButton label="Decrease" type="decrease" onClick={decreaseTime} />
+      <AdjustButton label="Increase" type="increase" onClick={increaseTime} disabled={isActive || seconds !== 0} />
+      <AdjustButton label="Decrease" type="decrease" onClick={decreaseTime} disabled={isActive || seconds !== 0} />
       </div>
       <div>
         <Button label="Start" onClick={startTimer} />
