@@ -29,15 +29,7 @@ function PomodoroTimer() {
     return () => clearInterval(interval);
   }, [isActive, minutes, seconds]);
 
-  useEffect(() => {
-    if (isActive) {
-      document.title = `${minutes.toString().padStart(2, "0")}:${seconds
-        .toString()
-        .padStart(2, "0")}`;
-    } else {
-      document.title = "Pomodoro Timer";
-    }
-  }, [isActive, minutes, seconds]);
+
 
   const startTimer = () => {
     setIsActive(true);
