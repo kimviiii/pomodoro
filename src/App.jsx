@@ -3,11 +3,13 @@ import "./App.css";
 import PomodoroTimer from "./components/PomodoroTimer/PomodoroTimer";
 import Quote from "./components/Quote/Quote";
 import Wallpaper from "./components/Wallpaper/Wallpaper";
-import AdjustButton from "./components/AdjustButton/AdjustButton";
+import FireSoundPlayer from "./components/FireSoundPlayer/FireSoundPlayer";
+
 
 function App() {
   return (
     <Wallpaper>
+      {/* <FireSoundPlayer /> */}
       <div className="App">
         <PomodoroTimer />
         <div>
