@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import Button from '../Button/Button';
-import styles from './PomodoroTimer.module.css';
-import AdjustButton from '../AdjustButton/AdjustButton';
+import React, { useState, useEffect } from "react";
+import Button from "../Button/Button";
+import styles from "./PomodoroTimer.module.css";
+import AdjustButton from "../AdjustButton/AdjustButton";
 
 function PomodoroTimer() {
   const [minutes, setMinutes] = useState(25);
@@ -27,6 +27,16 @@ function PomodoroTimer() {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
+  }, [isActive, minutes, seconds]);
+
+  useEffect(() => {
+    if (isActive) {
+      document.title = `${minutes.toString().padStart(2, "0")}:${seconds
+        .toString()
+        .padStart(2, "0")}`;
+    } else {
+      document.title = "Pomodoro Timer";
+    }
   }, [isActive, minutes, seconds]);
 
   const startTimer = () => {
@@ -59,11 +69,22 @@ function PomodoroTimer() {
     <div className={styles.pomodoroTimer}>
       <h1>Pomodoro Timer</h1>
       <div className={styles.timer}>
-        {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
+        {minutes.toString().padStart(2, "0")}:
+        {seconds.toString().padStart(2, "0")}
       </div>
       <div className={styles.adjustButtons}>
-      <AdjustButton label="Increase" type="increase" onClick={increaseTime} disabled={isActive || seconds !== 0} />
-      <AdjustButton label="Decrease" type="decrease" onClick={decreaseTime} disabled={isActive || seconds !== 0} />
+        <AdjustButton
+          label="Increase"
+          type="increase"
+          onClick={increaseTime}
+          disabled={isActive || seconds !== 0}
+        />
+        <AdjustButton
+          label="Decrease"
+          type="decrease"
+          onClick={decreaseTime}
+          disabled={isActive || seconds !== 0}
+        />
       </div>
       <div>
         <Button label="Start" onClick={startTimer} />
