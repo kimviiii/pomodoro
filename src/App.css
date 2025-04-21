@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+    padding: 20px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /*aligs to the right */
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px; /* Adds space between buttons (for future buttons) */
+  }
