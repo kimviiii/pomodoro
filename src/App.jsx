@@ -9,7 +9,11 @@ import FireSoundPlayer from "./components/FireSoundPlayer/FireSoundPlayer";
 function App() {
   return (
     <Wallpaper>
-      {/* <FireSoundPlayer /> */}
+      <div className="header">
+        <div className="button-container">
+          <FireSoundPlayer />
+        </div>
+      </div>
       <div className="App">
         <PomodoroTimer />
         <div>
