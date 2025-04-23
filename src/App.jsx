@@ -4,12 +4,15 @@ import PomodoroTimer from "./components/PomodoroTimer/PomodoroTimer";
 import Quote from "./components/Quote/Quote";
 import Wallpaper from "./components/Wallpaper/Wallpaper";
 import FireSoundPlayer from "./components/FireSoundPlayer/FireSoundPlayer";
-
+import CustomWallpaper from "./components/CustomWallpaper/CustomWallpaper";
 
 function App() {
   return (
     <Wallpaper>
       <div className="header">
+        <div className="background-changer">
+          <CustomWallpaper />
+        </div>
         <div className="button-container">
           <FireSoundPlayer />
         </div>
