@@ -5,11 +5,15 @@ import Quote from "./components/Quote/Quote";
 import Wallpaper from "./components/Wallpaper/Wallpaper";
 import FireSoundPlayer from "./components/FireSoundPlayer/FireSoundPlayer";
 import CustomWallpaper from "./components/CustomWallpaper/CustomWallpaper";
+import Button from "./components/Button/Button";
 
 function App() {
   return (
     <Wallpaper>
       <div className="header">
+        <div className="dark-mode-toggle">
+          <Button label="Toggle Dark Mode" onClick={() => {}} />
+        </div>
         <div className="background-changer">
           <CustomWallpaper />
         </div>
