@@ -20,55 +20,39 @@ const CustomWallaper = () => {
       document.body.style.backgroundSize = "cover";
       document.body.style.backgroundPosition = "center";
       document.body.style.backgroundRepeat = "no-repeat";
+      doAction(file.name);
     }
+  };
+
+  const doAction = (imageName) => {
+    alert(imageName);
   };
 
   return (
     <div className="image-uploader">
-      <div
-        className="preview-area"
-        style={{
-          width: "300px",
-          height: "200px",
-          border: "2px dashed #ccc",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundImage: backgroundImage ? `url(${backgroundImage})` : "none",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          cursor: "pointer",
-          margin: "20px auto",
-        }}
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileChange}
+        accept="image/*"
+        style={{ display: "none" }}
+      />
+      <button
+        type="button"
         onClick={handleImageUpload}
+        style={{
+          padding: "10px 15px",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+          display: "block",
+          margin: "0 auto",
+        }}
       >
-        {!backgroundImage && <p>Click to upload an image</p>}
-      </div>
-      <form encType="multipart/form-data">
-        <input
-          type="file"
-          ref={fileInputRef}
-          onChange={handleFileChange}
-          accept="image/*"
-          style={{ display: "none" }}
-        />
-        <button
-          type="button"
-          onClick={handleImageUpload}
-          style={{
-            padding: "10px 15px",
-            backgroundColor: "#4CAF50",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            display: "block",
-            margin: "0 auto",
-          }}
-        >
-          Upload Image
-        </button>
-      </form>
+        Upload Image
+      </button>
     </div>
   );
 };
