@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import styles from "./CustomWallpaper.module.css";
 import classNames from "classnames";
 
-const CustomWallaper = () => {
+const CustomWallaper = ({ onBackgroundChange }) => {
   const [backgroundImage, setBackgroundImage] = useState(null);
   const fileInputRef = useRef(null);
 
@@ -16,10 +16,13 @@ const CustomWallaper = () => {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setBackgroundImage(imageUrl);
-      document.body.style.backgroundImage = `url(${imageUrl})`;
-      document.body.style.backgroundSize = "cover";
-      document.body.style.backgroundPosition = "center";
-      document.body.style.backgroundRepeat = "no-repeat";
+      
+      // Instead of modifying document.body directly,
+      // use the prop function to communicate the change
+      if (onBackgroundChange) {
+        onBackgroundChange(imageUrl);
+      }
+      
       doAction(file.name);
     }
   };

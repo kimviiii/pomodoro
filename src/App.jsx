@@ -8,14 +8,20 @@ import CustomWallpaper from "./components/CustomWallpaper/CustomWallpaper";
 import Button from "./components/Button/Button";
 
 function App() {
+  const [customBackground, setCustomBackground] = useState(null);
+
+  const handleBackgroundChange = (imageUrl) => {
+    setCustomBackground(imageUrl);
+  };
+
   return (
-    <Wallpaper>
+    <Wallpaper customBackground={customBackground}>
       <div className="header">
         <div className="dark-mode-toggle">
           <Button label="Toggle Dark Mode" onClick={() => {}} />
         </div>
         <div className="background-changer">
-          <CustomWallpaper />
+          <CustomWallpaper onBackgroundChange={handleBackgroundChange} />
         </div>
         <div className="button-container">
           <FireSoundPlayer />
