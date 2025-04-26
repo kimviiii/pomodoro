@@ -1,4 +1,29 @@
 .fire {
-    border: 1px solid #ff0000;
     display: inline-block;
+}
+
+.fire .fire-sound-player {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.fire .fire-sound-player .fire-sound-player__controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fire button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: "white";
+    border: "none";
+    border-radius: "4px";
+    cursor: "pointer";
+    display: "block";
+    margin: "0 auto",
 }

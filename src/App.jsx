@@ -17,13 +17,13 @@ function App() {
   return (
     <Wallpaper customBackground={customBackground}>
       <div className="header">
+      <div className="button-container">
         <div className="dark-mode-toggle">
           <Button label="Toggle Dark Mode" onClick={() => {}} />
         </div>
         <div className="background-changer">
           <CustomWallpaper onBackgroundChange={handleBackgroundChange} />
         </div>
-        <div className="button-container">
           <FireSoundPlayer />
         </div>
       </div>
