@@ -6,6 +6,7 @@ import Wallpaper from "./components/Wallpaper/Wallpaper";
 import FireSoundPlayer from "./components/FireSoundPlayer/FireSoundPlayer";
 import CustomWallpaper from "./components/CustomWallpaper/CustomWallpaper";
 import Button from "./components/Button/Button";
+import DarkModeToggle from "./components/DarkModeToggle/DarkModeToggle";
 
 function App() {
   const [customBackground, setCustomBackground] = useState(null);
@@ -19,7 +20,7 @@ function App() {
       <div className="header">
       <div className="button-container">
         <div className="dark-mode-toggle">
-          <Button label="Toggle Dark Mode" onClick={() => {}} />
+          <DarkModeToggle />
         </div>
         <div className="background-changer">
           <CustomWallpaper onBackgroundChange={handleBackgroundChange} />
