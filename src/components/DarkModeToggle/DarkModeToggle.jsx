@@ -13,8 +13,12 @@ const DarkModeToggle = () => {
     };
     
     const handleToggle = () => {
+        if(isDarkMode) {
+            alert("Dark Mode");
+        } else {
+            alert("Light Mode");
+        }
         setIsDarkMode(!isDarkMode);
-        toggleAudio();
     };
     
     return (
