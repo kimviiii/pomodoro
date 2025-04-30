@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-const CustomWpallaper = ({ onBackgroundChange }) => {
+const CustomWallpaper = ({ onBackgroundChange }) => {
   const [backgroundImage, setBackgroundImage] = useState(null);
   const fileInputRef = useRef(null);
 
@@ -14,13 +14,9 @@ const CustomWpallaper = ({ onBackgroundChange }) => {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setBackgroundImage(imageUrl);
-      
-      // Instead of modifying document.body directly,
-      // use the prop function to communicate the change
       if (onBackgroundChange) {
         onBackgroundChange(imageUrl);
       }
-      
       doAction(file.name);
     }
   };
@@ -58,4 +54,4 @@ const CustomWpallaper = ({ onBackgroundChange }) => {
   );
 };
 
-export default CustomWpallaper;
+export default CustomWallpaper;
