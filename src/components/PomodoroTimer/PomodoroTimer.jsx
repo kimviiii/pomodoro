@@ -66,7 +66,7 @@ function PomodoroTimer({ isDarkMode }) {
   };
 
   return (
-    <div className={`${styles.PomodoroTimer} ${isDarkMode ? styles.dark : ""}`}>
+    <div className={`${styles.pomodoroTimer} ${isDarkMode ? styles.dark : ""}`}>
       <h1>Pomodoro Timer</h1>
       <div className={styles.timer}>
         {minutes.toString().padStart(2, "0")}:

@@ -1,26 +1,26 @@
 .pomodoroTimer {
-    text-align: center;
+  text-align: center;
 }
 
 .pomodoroTimer h1 {
-    color: #333;
+  color: #333;
 }
 
 .timer {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3em;
-    margin: 20px 0;
-    color: #515151;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3em;
+  margin: 20px 0;
+  color: #515151;
 }
 
 .pomodoroTimer.dark h1 {
-    color: #fff; /* White for dark mode */
-  }
-  
-  .pomodoroTimer.dark .timer {
-    color: #ddd; /* Light gray for dark mode */
-  }
-  
-  .pomodoroTimer div {
-    margin: 10px 0;
-  }
+  color: #fff; /* White for dark mode */
+}
+
+.pomodoroTimer.dark .timer {
+  color: #ddd; /* Light gray for dark mode */
+}
+
+.pomodoroTimer div {
+  margin: 10px 0;
+}
