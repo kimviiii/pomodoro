@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import styles from "./PomodoroTimer.module.css";
 import AdjustButton from "../AdjustButton/AdjustButton";
 
-function PomodoroTimer() {
+function PomodoroTimer({ isDarkMode }) {
   const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
@@ -66,7 +66,7 @@ function PomodoroTimer() {
   };
 
   return (
-    <div className={styles.pomodoroTimer}>
+    <div className={`${styles.PomodoroTimer} ${isDarkMode ? styles.dark : ""}`}>
       <h1>Pomodoro Timer</h1>
       <div className={styles.timer}>
         {minutes.toString().padStart(2, "0")}:

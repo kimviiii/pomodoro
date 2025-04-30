@@ -13,6 +13,14 @@
     color: #515151;
 }
 
-.pomodoroTimer div {
+.pomodoroTimer.dark h1 {
+    color: #fff; /* White for dark mode */
+  }
+  
+  .pomodoroTimer.dark .timer {
+    color: #ddd; /* Light gray for dark mode */
+  }
+  
+  .pomodoroTimer div {
     margin: 10px 0;
-}
+  }
