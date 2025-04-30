@@ -1,8 +1,6 @@
 import React, { useState, useRef } from "react";
-import styles from "./CustomWallpaper.module.css";
-import classNames from "classnames";
 
-const CustomWallaper = ({ onBackgroundChange }) => {
+const CustomWpallaper = ({ onBackgroundChange }) => {
   const [backgroundImage, setBackgroundImage] = useState(null);
   const fileInputRef = useRef(null);
 
@@ -60,4 +58,4 @@ const CustomWallaper = ({ onBackgroundChange }) => {
   );
 };
 
-export default CustomWallaper;
+export default CustomWpallaper;
