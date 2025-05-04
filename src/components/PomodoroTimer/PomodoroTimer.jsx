@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import styles from "./PomodoroTimer.module.css";
 import AdjustButton from "../AdjustButton/AdjustButton";
 
-function PomodoroTimer({ isDarkMode }) {
+function PomodoroTimer({ isDarkMode, onStudyTimeUpdate }) {
   const [minutes, setMinutes] = useState(25);
   const [seconds, setSeconds] = useState(0);
   const [isActive, setIsActive] = useState(false);
@@ -12,6 +12,10 @@ function PomodoroTimer({ isDarkMode }) {
     let interval = null;
     if (isActive && (minutes > 0 || seconds > 0)) {
       interval = setInterval(() => {
+        // increment study time by 1 second whenever time decrements
+        if(onStudyTimeUpdate) {
+          onStudyTimeUpdate(1);
+        }
         if (seconds === 0) {
           if (minutes === 0) {
             clearInterval(interval);
@@ -27,7 +31,7 @@ function PomodoroTimer({ isDarkMode }) {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isActive, minutes, seconds]);
+  }, [isActive, minutes, seconds, onStudyTimeUpdate]);
 
   useEffect(() => {
     if (isActive) {

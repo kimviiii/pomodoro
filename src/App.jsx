@@ -10,14 +10,42 @@ import DarkModeToggle from "./components/DarkModeToggle/DarkModeToggle";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [totalStudyTime, setTotalStudyTime] = useState(() => {
+    // Load saved study time from localStorage on initial load
+    const savedTime = localStorage.getItem('totalStudyTime');
+    return savedTime ? parseInt(savedTime, 10) : 0;
+  });
   const [customBackground, setCustomBackground] = useState(() => {
     const images = [0, 1, 2, 3];
     const randomNumber = Math.floor(Math.random() * images.length);
     return `src/assets/images/background${randomNumber}.jpg`;
   });
 
+  // Save total study time to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('totalStudyTime', totalStudyTime.toString());
+  }, [totalStudyTime]);
+
+  const handleStudyTimeUpdate = (seconds) => {
+    setTotalStudyTime(prevTime => prevTime + seconds);
+  };
+
   const handleBackgroundChange = (imageUrl) => {
     setCustomBackground(imageUrl);
+  };
+
+  // Helper function to format time in HH:MM:SS
+  const formatTime = (seconds) => {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const secs = seconds % 60;
+    
+    return `${hours > 0 ? hours.toString().padStart(2, "0") + ":" : ""}${minutes.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
+  };
+
+  // Function to reset total study time
+  const resetTotalStudyTime = () => {
+    setTotalStudyTime(0);
   };
 
   return (
@@ -32,9 +60,19 @@ function App() {
           </div>
           <FireSoundPlayer />
         </div>
+        <div className="study-time">
+          <span>Total Study Time: {formatTime(totalStudyTime)}</span>
+          <button 
+            className="reset-time-btn" 
+            onClick={resetTotalStudyTime}
+            title="Reset study time counter"
+          >
+            ↺
+          </button>
+        </div>
       </div>
       <div className="App">
-        <PomodoroTimer isDarkMode={isDarkMode} />
+        <PomodoroTimer isDarkMode={isDarkMode} onStudyTimeUpdate={handleStudyTimeUpdate} />
         <div>
           <Quote />
         </div>
