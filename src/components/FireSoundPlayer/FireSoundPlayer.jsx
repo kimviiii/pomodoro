@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import styles from "./FireSoundPlayer.module.css"; // Assuming you have a CSS module for styling
+import styles from "./FireSoundPlayer.module.css";
 import fireplaceCrackle from "/public/audio/fireplace-crackle.mp3";
+import { AiFillFire, AiOutlineFire } from "react-icons/ai";
 
 const FireSoundPlayer = () => {
   const audioRef = useRef(null);
@@ -10,7 +11,6 @@ const FireSoundPlayer = () => {
     if (isPlaying) {
       audioRef.current.pause();
     } else {
-    //   audioRef.current.volume = 0.6;
       audioRef.current.play();
     }
     setIsPlaying(!isPlaying);
@@ -22,11 +22,17 @@ const FireSoundPlayer = () => {
         <source src={fireplaceCrackle} type="audio/mp3" />
         Your browser does not support the audio element.
       </audio>
-      <button onClick={toggleAudio}>
-        {isPlaying ? "Pause Fire Sound" : "Play Fire Sound"}
+      <button 
+        onClick={toggleAudio} 
+        className={styles.fireButton}
+        aria-label={isPlaying ? "Pause fire sound" : "Play fire sound"}
+      >
+        {isPlaying ? (
+          <AiFillFire className={`${styles.fireIcon} ${styles.active}`} />
+        ) : (
+          <AiOutlineFire className={styles.fireIcon} />
+        )}
       </button>
-      {/* Attribution if required, e.g., for Zapsplat or Freesoundslibrary */}
-
     </div>
   );
 };

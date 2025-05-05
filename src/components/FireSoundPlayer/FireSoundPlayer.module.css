@@ -2,28 +2,37 @@
     display: inline-block;
 }
 
-.fire .fire-sound-player {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-.fire .fire-sound-player .fire-sound-player__controls {
+.fireButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.fire button {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: "white";
-    border: "none";
-    border-radius: "4px";
-    cursor: "pointer";
-    display: "block";
-    margin: "0 auto",
+.fireButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.fireIcon {
+    font-size: 1.5rem;
+    color: white;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.fireIcon.active {
+    color: #ff7700;
+}
+
+/* For light mode */
+:global(.light-mode) .fireIcon {
+    color: #333;
+}
+
+:global(.light-mode) .fireIcon.active {
+    color: #ff5500;
 }
