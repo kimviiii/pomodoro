@@ -1,0 +1,31 @@
+.imageUploader {
+  position: relative;
+  display: inline-block;
+}
+
+.uploadButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.uploadButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.galleryIcon {
+  font-size: 1.5rem;
+  color: white;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+/* For light mode, you may want to adjust the icon color */
+:global(.light-mode) .galleryIcon {
+  color: #333;
+}

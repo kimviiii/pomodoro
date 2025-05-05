@@ -1,4 +1,6 @@
 import React, { useState, useRef } from "react";
+import { FiImage } from "react-icons/fi";
+import styles from "./CustomWallpaper.module.css";
 
 const CustomWallpaper = ({ onBackgroundChange }) => {
   const [backgroundImage, setBackgroundImage] = useState(null);
@@ -26,7 +28,7 @@ const CustomWallpaper = ({ onBackgroundChange }) => {
   };
 
   return (
-    <div className="image-uploader">
+    <div className={styles.imageUploader}>
       <input
         type="file"
         ref={fileInputRef}
@@ -37,18 +39,10 @@ const CustomWallpaper = ({ onBackgroundChange }) => {
       <button
         type="button"
         onClick={handleImageUpload}
-        style={{
-          padding: "10px 15px",
-          backgroundColor: "#4CAF50",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
-          display: "block",
-          margin: "0 auto",
-        }}
+        className={styles.uploadButton}
+        aria-label="Upload custom background image"
       >
-        Upload Image
+        <FiImage className={styles.galleryIcon} />
       </button>
     </div>
   );
