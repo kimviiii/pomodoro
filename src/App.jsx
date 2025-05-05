@@ -8,6 +8,12 @@ import CustomWallpaper from "./components/CustomWallpaper/CustomWallpaper";
 import Button from "./components/Button/Button";
 import DarkModeToggle from "./components/DarkModeToggle/DarkModeToggle";
 
+// Import background images
+import background0 from "./assets/images/background0.jpg";
+import background1 from "./assets/images/background1.jpg";
+import background2 from "./assets/images/background2.jpg";
+import background3 from "./assets/images/background3.jpg";
+
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [totalStudyTime, setTotalStudyTime] = useState(() => {
@@ -16,9 +22,9 @@ function App() {
     return savedTime ? parseInt(savedTime, 10) : 0;
   });
   const [customBackground, setCustomBackground] = useState(() => {
-    const images = [0, 1, 2, 3];
+    const images = [background0, background1, background2, background3];
     const randomNumber = Math.floor(Math.random() * images.length);
-    return `src/assets/images/background${randomNumber}.jpg`;
+    return images[randomNumber];
   });
 
   // Save total study time to localStorage whenever it changes

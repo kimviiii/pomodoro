@@ -4,7 +4,7 @@
     background-position: center;
     flex-direction: column;
     padding-top: 60px;
-    background-image: url('src/assets/images/background1.jpg');
+    /* Remove default background image - will be set by component props */
     min-height: 100vh;
     display: flex;
     justify-content: center;
