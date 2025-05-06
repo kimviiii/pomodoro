@@ -15,7 +15,8 @@
 }
 
 .button-container {
-    border: 1px solid #ccc; /* Optional: adds a border around the button container */
+    /* Optional: adds a border around the button container */
+    /* border: 1px solid #ccc; */
     display: flex;
     gap: 10px; /* Adds space between buttons (for future buttons) */
 }
