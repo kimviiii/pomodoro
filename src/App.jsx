@@ -49,6 +49,14 @@ function App() {
     return `${hours > 0 ? hours.toString().padStart(2, "0") + ":" : ""}${minutes.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
   };
 
+  const studyTimeInHours = (seconds) => {
+    const hours = seconds / 3600;
+    if (Number.isInteger(hours)) {
+        return hours.toString(); // Return whole number as string (e.g., "2")
+    }
+    return hours.toFixed(1);
+  };
+
   // Function to reset total study time
   const resetTotalStudyTime = () => {
     setTotalStudyTime(0);
@@ -67,7 +75,8 @@ function App() {
           <FireSoundPlayer />
         </div>
         <div className="study-time">
-          <span>Total Study Time: {formatTime(totalStudyTime)}</span>
+          {/* <span>Total Study Time: {formatTime(totalStudyTime)}</span> */}
+          <span>Total Study Time: {studyTimeInHours(totalStudyTime)} hours</span>
           <button 
             className="reset-time-btn" 
             onClick={resetTotalStudyTime}
